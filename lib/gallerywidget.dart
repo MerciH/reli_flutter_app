@@ -7,11 +7,13 @@ class GalleryWidget extends StatefulWidget {
   final List<String> urlImages;
   final int index;
   final PageController pageController;
+
   // ignore: use_key_in_widget_constructors
   GalleryWidget({
     required this.urlImages,
     this.index = 0,
   }) : pageController = PageController(initialPage: index);
+
   @override
   State<GalleryWidget> createState() => _GalleryWidgetState();
 }
@@ -30,13 +32,13 @@ class _GalleryWidgetState extends State<GalleryWidget> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: whitecolor,
+        backgroundColor: whiteColor,
         centerTitle: true,
         title: const Text(
           'Gallery',
-          style: TextStyle(color: blackcolor),
+          style: TextStyle(color: blackColor),
         ),
-        iconTheme: const IconThemeData(color: blackcolor),
+        iconTheme: const IconThemeData(color: blackColor),
         leading: IconButton(
             onPressed: () => Navigator.of(context).pop(),
             icon: const Icon(Icons.arrow_back)),

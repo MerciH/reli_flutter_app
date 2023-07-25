@@ -41,6 +41,18 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
+Future<dynamic> sortImagesByIncreaseSize() async {
+    transformedImages.sort((a, b) => a['size'].compareTo(b['size']));
+}
+Future<dynamic> sortImagesByDecreaseSize() async {
+    transformedImages.sort((b, a) => a['size'].compareTo(b['size']));
+}
+Future<dynamic> sortImagesByNamesIncrease() async {
+    transformedImages.sort((a, b) => a['path'].compareTo(b['path']));
+}
+Future<dynamic> sortImagesByNamesDecrease() async {
+    transformedImages.sort((b, a) => a['path'].compareTo(b['path']));
+}
   @override
   void initState(){
     getSizeOfImages();
@@ -90,18 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                         ),
                         onPressed: () {
-                          // Future<dynamic> sortImagesByIncreaseSize() async {
-                          //   transformedImages.sort((a, b) => a['size'].compareTo(b['size']));
-                          // }
-                          // Future<dynamic> sortImagesByDecreaseSize() async {
-                          //   transformedImages.sort((b, a) => a['size'].compareTo(b['size']));
-                          // }
-                          // Future<dynamic> sortImagesByNamesIncrease() async {
-                          //   transformedImages.sort((a, b) => a['path'].compareTo(b['path']));
-                          // }
-                          // Future<dynamic> sortImagesByNamesDecrease() async {
-                          //   transformedImages.sort((b, a) => a['path'].compareTo(b['path']));
-                          // }
+                          
                             Navigator.push(
                               context,
                               MaterialPageRoute(
