@@ -41,10 +41,10 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
-Future<dynamic> sortImagesByIncreaseSize() async {
+Future<dynamic> sortImagesByIncreseSize() async {
     transformedImages.sort((a, b) => a['size'].compareTo(b['size']));
 }
-Future<dynamic> sortImagesByDecreaseSize() async {
+Future<dynamic> sortImagesByDecreseSize() async {
     transformedImages.sort((b, a) => a['size'].compareTo(b['size']));
 }
 Future<dynamic> sortImagesByNamesIncrease() async {
@@ -72,6 +72,78 @@ Future<dynamic> sortImagesByNamesDecrease() async {
           style: const TextStyle(color: blackColor),
         ),
         iconTheme: const IconThemeData(color: blackColor),
+
+        actions: <Widget>[
+  GestureDetector(
+    onTap: () {
+      // show the dialog
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text("Filter By"),
+            // content: const Text("This is my message."),
+            actions: [
+              TextButton(
+                child: Column(
+                  children: const [
+                    Text('By size (Ascending)'),
+                  ],
+                ),
+                onPressed: () {
+                  sortImagesByIncreseSize()
+                      .then((value) => setState(() {}));
+                  Navigator.pop(context);
+                },
+              ),
+              TextButton(
+                child: Column(
+                  children: const [
+                    Text('By size (descending)'),
+                  ],
+                ),
+                onPressed: () {
+                  sortImagesByDecreseSize()
+                      .then((value) => setState(() {}));
+                  Navigator.pop(context);
+                },
+              ),
+              TextButton(
+                child: Column(
+                  children: const [
+                    Text('By name (Ascending)'),
+                  ],
+                ),
+                onPressed: () {
+                  sortImagesByNamesIncrease()
+                      .then((value) => setState(() {}));
+                  Navigator.pop(context);
+                },
+              ),
+              TextButton(
+                child: Column(
+                  children: const [
+                    Text('By name (descending)'),
+                  ],
+                ),
+                onPressed: () {
+                  sortImagesByNamesDecrease()
+                      .then((value) => setState(() {}));
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          );
+        },
+      );
+    },
+    child: Container(
+      margin: const EdgeInsets.only(right: 20),
+      child: const Icon(Icons.more_vert),
+    ),
+  )
+],
+
       ),
       // Body area
       body: SafeArea(
