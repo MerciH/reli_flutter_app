@@ -133,11 +133,12 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+  static const String _title = 'ReLi App';
 
   @override
   Widget build(BuildContext context) => const MaterialApp(
         title: _title,
         debugShowCheckedModeBanner: false,
-        home: MyHomePage(title: 'Gallery'),
+        home: MyHomePage(title: 'ReLi Photo App'),
       );
 }

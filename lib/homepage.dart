@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/src/material/colors.dart';
 
 import 'package:flutter/services.dart';
 import 'gallerywidget.dart';
 
 const whiteColor = Colors.white;
-const blackColor = Colors.black;
+const blackColor = Colors.brown;
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -41,20 +42,24 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
-Future<dynamic> sortImagesByIncreseSize() async {
+  Future<dynamic> sortImagesByIncreseSize() async {
     transformedImages.sort((a, b) => a['size'].compareTo(b['size']));
-}
-Future<dynamic> sortImagesByDecreseSize() async {
+  }
+
+  Future<dynamic> sortImagesByDecreseSize() async {
     transformedImages.sort((b, a) => a['size'].compareTo(b['size']));
-}
-Future<dynamic> sortImagesByNamesIncrease() async {
+  }
+
+  Future<dynamic> sortImagesByNamesIncrease() async {
     transformedImages.sort((a, b) => a['path'].compareTo(b['path']));
-}
-Future<dynamic> sortImagesByNamesDecrease() async {
+  }
+
+  Future<dynamic> sortImagesByNamesDecrease() async {
     transformedImages.sort((b, a) => a['path'].compareTo(b['path']));
-}
+  }
+
   @override
-  void initState(){
+  void initState() {
     getSizeOfImages();
     super.initState();
   }
@@ -64,7 +69,7 @@ Future<dynamic> sortImagesByNamesDecrease() async {
     return Scaffold(
       // app bar
       appBar: AppBar(
-        elevation: 0,
+        elevation: 10,
         backgroundColor: whiteColor,
         centerTitle: true,
         title: Text(
@@ -72,84 +77,88 @@ Future<dynamic> sortImagesByNamesDecrease() async {
           style: const TextStyle(color: blackColor),
         ),
         iconTheme: const IconThemeData(color: blackColor),
-
         actions: <Widget>[
-  GestureDetector(
-    onTap: () {
-      // show the dialog
-      showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: const Text("Filter By"),
-            // content: const Text("This is my message."),
-            actions: [
-              TextButton(
-                child: Column(
-                  children: const [
-                    Text('By size (Ascending)'),
-                  ],
-                ),
-                onPressed: () {
-                  sortImagesByIncreseSize()
-                      .then((value) => setState(() {}));
-                  Navigator.pop(context);
+          GestureDetector(
+            onTap: () {
+              // show the dialog
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: const Text('Filter By'),
+                    // content: const Text("This is my message."),
+                    actions: [
+                      TextButton(
+                        child: Column(
+                          children: const [
+                            Text('By size (Ascending)'),
+                          ],
+                        ),
+                        onPressed: () {
+                          sortImagesByIncreseSize()
+                              .then((value) => setState(() {}));
+                          Navigator.pop(context);
+                        },
+                      ),
+                      TextButton(
+                        child: Column(
+                          children: const [
+                            Text('By size (descending)'),
+                          ],
+                        ),
+                        onPressed: () {
+                          sortImagesByDecreseSize()
+                              .then((value) => setState(() {}));
+                          Navigator.pop(context);
+                        },
+                      ),
+                      TextButton(
+                        child: Column(
+                          children: const [
+                            Text('By name (Ascending)'),
+                          ],
+                        ),
+                        onPressed: () {
+                          sortImagesByNamesIncrease()
+                              .then((value) => setState(() {}));
+                          Navigator.pop(context);
+                        },
+                      ),
+                      TextButton(
+                        child: Column(
+                          children: const [
+                            Text('By name (descending)'),
+                          ],
+                        ),
+                        onPressed: () {
+                          sortImagesByNamesDecrease()
+                              .then((value) => setState(() {}));
+                          Navigator.pop(context);
+                        },
+                      ),
+                    ],
+                  );
                 },
-              ),
-              TextButton(
-                child: Column(
-                  children: const [
-                    Text('By size (descending)'),
-                  ],
-                ),
-                onPressed: () {
-                  sortImagesByDecreseSize()
-                      .then((value) => setState(() {}));
-                  Navigator.pop(context);
-                },
-              ),
-              TextButton(
-                child: Column(
-                  children: const [
-                    Text('By name (Ascending)'),
-                  ],
-                ),
-                onPressed: () {
-                  sortImagesByNamesIncrease()
-                      .then((value) => setState(() {}));
-                  Navigator.pop(context);
-                },
-              ),
-              TextButton(
-                child: Column(
-                  children: const [
-                    Text('By name (descending)'),
-                  ],
-                ),
-                onPressed: () {
-                  sortImagesByNamesDecrease()
-                      .then((value) => setState(() {}));
-                  Navigator.pop(context);
-                },
-              ),
-            ],
-          );
-        },
-      );
-    },
-    child: Container(
-      margin: const EdgeInsets.only(right: 20),
-      child: const Icon(Icons.more_vert),
-    ),
-  )
-],
-
+              );
+            },
+            child: Container(
+              margin: const EdgeInsets.only(right: 20),
+              child: const Icon(Icons.more_vert),
+            ),
+          )
+        ],
       ),
       // Body area
       body: SafeArea(
           child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
+          // Image.asset('assets/image/'),
+          // Text(
+          //   'A tablet is a wireless touch screen computer that is smaller than a notebook but larger than a smartphone.',
+          //   style: TextStyle(fontSize: 20.0),
+          // )
+
           Expanded(
               child: Container(
                   padding:
@@ -168,14 +177,14 @@ Future<dynamic> sortImagesByNamesDecrease() async {
                       return RawMaterialButton(
                         child: InkWell(
                           child: Ink.image(
-                            image: AssetImage(transformedImages as String\[index\]['path']),
+                            // image: AssetImage(transformedImages[index]['path']),
+                            image: AssetImage('assets/images/IMG_9379.JPG'),
                             height: 300,
                             fit: BoxFit.cover,
                           ),
                         ),
                         onPressed: () {
-                          
-                            Navigator.push(
+                          Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => GalleryWidget(
@@ -188,8 +197,7 @@ Future<dynamic> sortImagesByNamesDecrease() async {
                     itemCount: transformedImages.length,
                   )))
         ],
-      )
-      ),
+      )),
     );
   }
 }
