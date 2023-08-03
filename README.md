@@ -14,3 +14,11 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+##About
+
+#ReLi Photo App displays images shot by a photographer named Merci.
+You can download those images for free once the App has been downloaded.
+The photos are classified into 6 categories: Animals, Nature, Events, Portraits, Sunset and flowers.
+
+
