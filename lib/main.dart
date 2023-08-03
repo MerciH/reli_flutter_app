@@ -48,13 +48,13 @@ class MyHomePage extends StatelessWidget {
         ),
         body: SingleChildScrollView(
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(8.0),
-              child: Image.asset(
-                'assets/brand/camera.jpeg',
-                fit: BoxFit.cover,
-              ),
+            // ClipRRect(
+            // borderRadius: BorderRadius.circular(8.0),
+            Image.asset(
+              'assets/brand/camera.jpeg',
+              fit: BoxFit.cover,
             ),
+            // ),
             Container(
                 padding: const EdgeInsets.fromLTRB(50, 50, 50, 50),
                 child: Column(

@@ -76,6 +76,12 @@ flutter:
   assets:
     - assets/
     - assets/images/
+    - assets/images/animals/
+    - assets/images/events/
+    - assets/images/portraits/
+    - assets/images/nature/
+    - assets/images/sunset/
+    - assets/images/flowers/
     - assets/brand/
     # - assets/brand/camera.jpg
   # assets:
