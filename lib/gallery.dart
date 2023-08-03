@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'imageGalleryPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,31 +15,10 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class ImageModel {
-  final String path;
-  final String category;
-
-  ImageModel({required this.path, required this.category});
-}
-
 class ImageGridPage extends StatelessWidget {
-  final List<ImageModel> images = [
-    ImageModel(path: 'Photography1.png', category: 'portraits'),
-    ImageModel(path: 'Photography2.png', category: 'events'),
-    ImageModel(path: 'Photography3.png', category: 'nature'),
-    ImageModel(path: 'Photography4.png', category: 'animals'),
-    ImageModel(path: 'Photography5.png', category: 'flowers'),
-    ImageModel(path: 'Photography6.png', category: 'sunset'),
-  ];
-
-  final List<ImageModel> categorizedImages = [
-    ImageModel(path: 'Photography1.png', category: 'portraits'),
-    ImageModel(path: 'events/1.JPEG', category: 'events'),
-    ImageModel(path: 'Photography3.png', category: 'nature'),
-    ImageModel(path: 'animals/1', category: 'animals'),
-    ImageModel(path: 'Photography5.png', category: 'flowers'),
-    ImageModel(path: 'Photography6.png', category: 'sunset'),
-  ];
+  final List<ImageModel> images = imagesCategory;
+  static int indexing = 1;
+  final List<ImageModel> categorizedImages = listImages;
 
   @override
   Widget build(BuildContext context) {
@@ -76,6 +56,7 @@ class ImageGridPage extends StatelessWidget {
                         .where(
                             (image) => image.category == images[index].category)
                         .toList(),
+                    category: images[index].category,
                   ),
                 ),
               );
@@ -84,43 +65,6 @@ class ImageGridPage extends StatelessWidget {
               'assets/brand/${images[index].path}',
               fit: BoxFit.cover,
             ),
-          );
-        },
-      ),
-    );
-  }
-}
-
-class ImageGalleryPage extends StatelessWidget {
-  final List<ImageModel> images;
-  // final List<ImageModel> images = [
-  //   ImageModel(path: 'Photography1.png', category: 'portraits'),
-  //   ImageModel(path: 'events/1.JPEG', category: 'events'),
-  //   ImageModel(path: 'Photography3.png', category: 'nature'),
-  //   ImageModel(path: 'animals/1', category: 'animals'),
-  //   ImageModel(path: 'Photography5.png', category: 'flowers'),
-  //   ImageModel(path: 'Photography6.png', category: 'sunset'),
-  // ];
-
-  ImageGalleryPage({required this.images});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Image Gallery'),
-      ),
-      body: GridView.builder(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 5,
-          mainAxisSpacing: 5,
-        ),
-        itemCount: images.length,
-        itemBuilder: (context, index) {
-          return Image.asset(
-            'assets/images/${images[index].path}',
-            fit: BoxFit.cover,
           );
         },
       ),
