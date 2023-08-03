@@ -81,7 +81,7 @@ class ImageGridPage extends StatelessWidget {
               );
             },
             child: Image.asset(
-              'assets/brand/${images[index]}',
+              'assets/brand/${images[index].path}',
               fit: BoxFit.cover,
             ),
           );
