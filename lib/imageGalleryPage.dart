@@ -125,16 +125,12 @@ class ImageGalleryPage extends StatelessWidget {
         ),
         backgroundColor: Colors.pink.shade900,
       ),
-      body: LayoutBuilder(
-        builder: (context, constraints) => SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              const SizedBox(height: 20),
+      body:
+            // children: <Widget>[
               GridView.builder(
                 shrinkWrap:
                     true, // Use shrinkWrap to make the grid fit the content size
-                physics:
-                    NeverScrollableScrollPhysics(), // Disable grid's scrolling
+                physics:NeverScrollableScrollPhysics(), // Disable grid's scrolling
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 5,
@@ -148,10 +144,7 @@ class ImageGalleryPage extends StatelessWidget {
                   );
                 },
               ),
-            ],
-          ),
-        ),
-      ),
+            // ],
     );
   }
 }

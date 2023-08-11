@@ -8,9 +8,14 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
+        appBar:PreferredSize(
+        preferredSize: Size.fromHeight(80), // Adjust the height as needed
+    child: Container(
+    margin: EdgeInsets.only(top: 30), // Add margin to the top
+    // padding: EdgeInsets.symmetric(horizontal: 16), // Add horizontal padding
+    child: AppBar(
           elevation: 0, // Remove shadow from the app bar
-          backgroundColor: Colors.white, // Background color of the app bar
+          backgroundColor: Colors.blue.shade50, // Background color of the app bar
           centerTitle: true, // Center the title horizontally
           title: Text(
             'ReLi', // Your custom title text
@@ -18,19 +23,28 @@ class MyHomePage extends StatelessWidget {
               color: Colors.black,
               // Text color
               fontSize: 34, // Text size
-              fontWeight: FontWeight.bold, // Text weight (bold)
+              fontWeight: FontWeight.normal, // Text weight (bold)
               letterSpacing: 1.2, // Spacing between characters
               // You can also apply other styles like font family, etc. here
             ),
           ),
         ),
+    ),
+        ),
+        backgroundColor: Colors.blue.shade50,
         body: SingleChildScrollView(
+          padding: const EdgeInsets.fromLTRB(45, 80, 0, 100),
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
             // ClipRRect(
             // borderRadius: BorderRadius.circular(8.0),
-            Image.asset(
-              'assets/brand/camera.jpeg',
-              fit: BoxFit.cover,
+            ClipRRect(
+              borderRadius: BorderRadius.circular(20), // Adjust the radius as needed
+              child: Image.asset(
+                'assets/brand/camera.jpeg', // Replace with your image asset path
+                width: 300, // Set the desired width
+                height: 300, // Set the desired height
+                fit: BoxFit.cover,
+              ),
             ),
             // ),
             Container(
@@ -39,12 +53,19 @@ class MyHomePage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      'The best quality images\n Reality Life in Images',
+                      'The best quality images',
                       style: GoogleFonts.notoSans(
-                          fontWeight: FontWeight.normal, fontSize: 25),
+                          fontWeight: FontWeight.normal, fontSize: 20),
                     ),
+                    Text(
+                      '\"Real Life in pixels\"',
+                      style: GoogleFonts.notoSans(
+                          fontWeight: FontWeight.bold, fontSize: 20),
+                    ),
+                    SizedBox(height: 40),
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
+                            padding: EdgeInsets.all(16),
                             backgroundColor: Colors.pink.shade900),
                         onPressed: () {
                           Navigator.push(
@@ -52,7 +73,7 @@ class MyHomePage extends StatelessWidget {
                               MaterialPageRoute(
                                   builder: (context) => ImageGridPage()));
                         },
-                        child: const Text('Photos'))
+                        child: const Text('Get photos'))
                   ],
                 ))
           ]),

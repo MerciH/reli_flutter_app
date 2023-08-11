@@ -37,6 +37,7 @@ class ImageGridPage extends StatelessWidget {
         ),
         backgroundColor: Colors.pink.shade900,
       ),
+      backgroundColor: Colors.pink.shade50,
       body: GridView.builder(
         padding: const EdgeInsets.fromLTRB(10, 80, 10, 0),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
