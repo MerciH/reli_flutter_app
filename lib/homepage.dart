@@ -58,7 +58,7 @@ class MyHomePage extends StatelessWidget {
                           fontWeight: FontWeight.normal, fontSize: 20),
                     ),
                     Text(
-                      '\"Real Life in pixels\"',
+                      '"Real Life in pixels"',
                       style: GoogleFonts.notoSans(
                           fontWeight: FontWeight.bold, fontSize: 20),
                     ),
